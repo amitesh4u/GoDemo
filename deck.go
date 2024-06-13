@@ -60,3 +60,19 @@ func randomGenerator() *rand.Rand {
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
+
+// Save deck to a local file
+func (d deck) saveToFile(fileName string) {
+	fileData := []byte(d.toString())
+	//fmt.Println(fileData)
+	err := os.WriteFile(fileName, fileData, fs.FileMode(os.O_RDWR))
+	if err != nil {
+		defer os.Exit(1)
+		log.Fatal(err)
+	}
+}
+
+// Convert a List into a delimited String
+func (d deck) toString() string {
+	return strings.Join(d, ",")
+}

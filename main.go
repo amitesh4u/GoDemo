@@ -20,7 +20,7 @@ func main() {
 	remainingDeck.print()
 
 	// Save the deck to a file
-	cards.saveToFile()
+	remainingDeck.saveToFile("out/deck.txt")
 
 	// Recreate the deck from the file
 	newCards := newDeckFromFile()
