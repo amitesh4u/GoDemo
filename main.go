@@ -13,4 +13,6 @@ func main() {
 
 	testGoRoutinesWithChannel()
 
+	/* Infinite Line Status checker */
+	testGoRoutinesWithChannelAndFuncLiteral()
 }
