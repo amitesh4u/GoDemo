@@ -10,8 +10,14 @@ func main() {
 	cards.print()
 
 	// Deal a hand
-	hand := cards.deal()
-	hand.print()
+	firstHand, remainingDeck := deal(cards, 3)
+	firstHand.print()
+	remainingDeck.print()
+
+	// Deal another hand
+	secondHand, remainingDeck := deal(remainingDeck, 3)
+	secondHand.print()
+	remainingDeck.print()
 
 	// Save the deck to a file
 	cards.saveToFile()

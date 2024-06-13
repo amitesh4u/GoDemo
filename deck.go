@@ -54,3 +54,9 @@ func randomGenerator() *rand.Rand {
 	source := rand.NewSource(time.Now().UnixNano()) //Seed must be of type int64
 	return rand.New(source)
 }
+
+// Return N cards from Top and return left over the cards
+// Passing Deck as parameter here for novelty and returning multiple values
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
