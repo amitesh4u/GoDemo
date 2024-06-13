@@ -1,4 +1,12 @@
-# Sample go lang application called Cards
+# Sample codes
 
-<img src="Cards_functionality.png" alt="Cards application functionality"/>
+* **Struct**
+* **Interface**
+* **Http calls**
+* **GoRoutines**
+* **Channels**
+* **Sample application Cards**
+
+  <img src="Cards_functionality.png" alt="Cards application functionality"/>
+ 
 
