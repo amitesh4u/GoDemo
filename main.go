@@ -8,6 +8,12 @@ func main() {
 	testStructPointerFlows()
 
 	testInterface()
+
+	testHttpCall()
+}
+
+func testHttpCall() {
+	makeGetCall()
 }
 
 func testInterface() {
