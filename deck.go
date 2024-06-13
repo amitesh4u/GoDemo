@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io/fs"
+	"log"
 	"math/rand"
+	"os"
+	"strings"
 	"time"
 )
 
@@ -75,4 +79,15 @@ func (d deck) saveToFile(fileName string) {
 // Convert a List into a delimited String
 func (d deck) toString() string {
 	return strings.Join(d, ",")
+}
+
+// Fetch Deck from local file
+func newDeckFromFile(fileName string) deck {
+	fileData, err := os.ReadFile(fileName)
+	if err != nil {
+		log.Fatal(err)
+		return deck{}
+	}
+
+	return strings.Split(string(fileData), ",")
 }
