@@ -1,17 +1,17 @@
 package main
 
 func main() {
-	testDeckFlows()
+	//testDeckFlows()
 
-	testStructPointerFlows()
+	//testStructPointerFlows()
 
-	testInterface()
+	//testInterface()
 
-	testHttpCall()
+	//testHttpCall()
 
-	testGoRoutines()
+	//testGoRoutines()
 
-	testGoRoutinesWithChannel()
+	//testGoRoutinesWithChannel()
 
 	/* Infinite Line Status checker */
 	testGoRoutinesWithChannelAndFuncLiteral()
