@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 	testDeckFlows()
@@ -10,6 +13,25 @@ func main() {
 	testInterface()
 
 	testHttpCall()
+
+	testGoRoutines()
+}
+
+func testGoRoutines() {
+	links := []string{
+		"https://google.com",
+		"https://facebook.com",
+		"https://dummy.abc",
+		"https://stackoverflow.com",
+		"https://golang.org",
+		"https://amazon.com",
+	}
+	for _, link := range links {
+		// Call the method as go routines
+		go checkLink(link)
+	}
+	// Waiting for go routines to finish processing
+	time.Sleep(5 * time.Second)
 }
 
 func testHttpCall() {
