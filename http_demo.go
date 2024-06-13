@@ -8,6 +8,10 @@ import (
 	"os"
 )
 
+func testHttpCall() {
+	makeGetCall()
+}
+
 func makeGetCall() {
 	res, getErr := http.Get("https://google.com")
 	if getErr != nil {

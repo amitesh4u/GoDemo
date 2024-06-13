@@ -2,6 +2,14 @@ package main
 
 import "fmt"
 
+func testInterface() {
+	e := engBot{}
+	printGreeting(e)
+
+	s := spanishBot{}
+	printGreeting(s)
+}
+
 type bot interface {
 	greeting() string
 }
