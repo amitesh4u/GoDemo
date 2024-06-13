@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
@@ -26,12 +25,19 @@ func testGoRoutines() {
 		"https://golang.org",
 		"https://amazon.com",
 	}
+	// Create Channel of String since main function may exit before goroutines process completes
+	// Similar to Future in java
+	c := make(chan string)
+
 	for _, link := range links {
 		// Call the method as go routines
-		go checkLink(link)
+		go checkLink(link, c)
 	}
-	// Waiting for go routines to finish processing
-	time.Sleep(5 * time.Second)
+	// Waiting and processing return of all channel results
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
+
 }
 
 func testHttpCall() {
