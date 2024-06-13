@@ -6,6 +6,16 @@ func main() {
 	testDeckFlows()
 
 	testStructPointerFlows()
+
+	testInterface()
+}
+
+func testInterface() {
+	e := engBot{}
+	printGreeting(e)
+
+	s := spanishBot{}
+	printGreeting(s)
 }
 
 func testStructPointerFlows() {
