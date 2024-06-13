@@ -1,12 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // Creates a new Type 'Deck' which is a slice of Strings
 type deck []string
 
 // (d deck) is receiver. Any var of type Deck get access to method Print
 func (d deck) print() {
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~")
 	for _, card := range d {
 		fmt.Println(card)
 	}
@@ -31,20 +36,21 @@ func newDeck() deck {
 
 // Shuffle the Deck
 func (d deck) shuffle() deck {
-	return deck{}
+	var shuffleIndices = make(map[int]bool)
+	var shuffledDeck = deck{}
+	var cardLen = len(d)
+	for len(shuffleIndices) < cardLen {
+		index := randomGenerator().Intn(cardLen)
+		if !shuffleIndices[index] {
+			shuffledDeck = append(shuffledDeck, d[index])
+			shuffleIndices[index] = true
+		}
+	}
+	return shuffledDeck
 }
 
-// Return a hand of cards
-func (d deck) deal() deck {
-	return deck{}
-}
-
-// Save deck to a local file
-func (d deck) saveToFile() {
-
-}
-
-// Fetch Deck from local file
-func newDeckFromFile() deck {
-	return deck{}
+// go lang uses same seed everytime so changing it to use current time
+func randomGenerator() *rand.Rand {
+	source := rand.NewSource(time.Now().UnixNano()) //Seed must be of type int64
+	return rand.New(source)
 }
