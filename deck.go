@@ -23,7 +23,7 @@ func (d deck) print() {
 
 // Returns a new Deck. No receiver required here
 func newDeck() deck {
-	cardSuites := []string{"Heart", "Spades", "Club", "Diamond"}
+	cardSuites := []string{"Hearts", "Spades", "Clubs", "Diamonds"}
 	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven",
 		"Eight", "Nine", "Ten", "Jack", "Queen", "King"}
 
@@ -32,7 +32,7 @@ func newDeck() deck {
 	// Else it will create Unused variable error
 	for _, suite := range cardSuites {
 		for _, value := range cardValues {
-			cards = append(cards, suite+" of "+value)
+			cards = append(cards, value+" of "+suite)
 		}
 	}
 	return cards
